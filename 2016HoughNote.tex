@@ -1,0 +1,93 @@
+%-------------------------------------------------------------------------------
+% This file provides a skeleton ATLAS document
+%-------------------------------------------------------------------------------
+\documentclass{atlasnote} 
+% Options:
+%		nomaketitle Do not run \maketitle from the class
+%		coverpage	  Create ATLAS draft cover page for collaboration circulation
+%							  atlascover.sty must be in this directory or a system directory.
+%							  See coveronly.tex for a list of variables that should be defined.
+%							  Do not include the hyperref package in this file when you set coverpage.
+%		CONF			  This is a CONF note
+%		usetikz		  Load tikz package in the right place
+
+%-------------------------------------------------------------------------------
+% Extra packages:
+% See doc/atlasphyics.pdf for a list of the defined symbols
+\usepackage{atlasphysics}
+%\usepackage{subfig}
+\usepackage{caption}
+%\usepackage{subcaption}
+% Comment out hyperref if you use coverpage
+%\usepackage[colorlinks,breaklinks,pdftitle={ATLAS draft},pdfauthor={The ATLAS Collaboration}]{hyperref}  
+%\hypersetup{linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=blue} 
+\usepackage{hyperref}
+\usepackage{amssymb,amsmath}
+
+\newcommand{\red}[1]{\textcolor[rgb]{1,0,0}{#1}}
+\newcommand{\gold}[1]{\textcolor[rgb]{1,0.8,0}{#1}}
+\newcommand{\blue}[1]{\textcolor[rgb]{0,0,0.9}{#1}}
+
+% Control placement of floats (figures, tables)
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.06}
+\renewcommand{\floatpagefraction}{0.89}
+\setcounter{totalnumber}{5}
+\setcounter{topnumber}{4}
+
+%-------------------------------------------------------------------------------
+% Specify title, author, abstract and document numbers here
+
+% Title
+\title{Muon Segment Seeding for ATLAS Muon Reconstruction in Run II}
+% Author --  Default is ``The ATLAS collaboration''
+%\author{The ATLAS Collaboration}
+
+% if multiple authors/affiliations are needed, use the authblk package
+\usepackage{authblk}
+\renewcommand\Authands{, } % avoid ``. and'' for last author
+\renewcommand\Affilfont{\itshape\small} % affiliation formatting
+\author[a]{Melissa~Franklin}
+\author[b]{Jochen~Meyer}
+\author[a]{Baojia(Tony)~Tong}
+\affil[a]{Harvard University}
+\affil[b]{Nikhef}
+% Date: if not given, uses current date
+\date{\today}
+
+\draftversion{1.0}
+% This is an internal note; 
+
+% Abstract
+\abstracttext{In Run II, ATLAS Muon Reconstruction uses Hough Transform to select raw hits and make local maximas. Maximas that meet certain criteria are used as seeds for road, which are extended pathes in the Muon Spectrometer. The hits contained in all the roads are  the input for Muon Segment finding. This note serves as a short introduction to the current methods, the possible improvements in road finding, and impacts on segments reconstruction with different seed thresholds.}
+
+%-------------------------------------------------------------------------------
+% Content
+%-------------------------------------------------------------------------------
+\begin{document}
+\tableofcontents
+\clearpage
+\input{f_introduction}
+\clearpage
+\include{f_data}
+\clearpage
+\include{f_MS}
+\clearpage
+\include{f_Reco}
+\clearpage
+\include{f_Seed}
+\clearpage
+\include{f_Extrapolation}
+\clearpage
+\input{f_conclusion}
+\clearpage
+\appendix
+\input{f_appendix}
+\clearpage
+%on going
+%\bibliographystyle{atlasBibStyleWoTitle}
+%\bibliography{f_bib}
+
+\input{biblio}
+\end{document}
